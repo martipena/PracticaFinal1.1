@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ProducteSQLiteHelper extends SQLiteOpenHelper {
 
-    //Sentencia SQL para crear la tabla de Productes
+    //Sentencia SQL per crear la taula de productes
     String sqlCreate = "CREATE TABLE Productes (id INTEGER, tipo TEXT, marca TEXT, nom TEXT, preu INTEGER)";
 
     public ProducteSQLiteHelper(Context contexto, String nom,
@@ -18,21 +18,17 @@ public class ProducteSQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //Se ejecuta la sentencia SQL de creación de la tabla
+        //S'executa la sentencia per crear la taula
         db.execSQL(sqlCreate);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAnterior, int versionNueva) {
-        //NOTA: Por simplicidad del ejemplo aquí utilizamos directamente la opción de
-        //      eliminar la tabla anterior y crearla de nuevo vacía con el nuevo formato.
-        //      Sin embargo lo normal será que haya que migrar datos de la tabla antigua
-        //      a la nueva, por lo que este método debería ser más elaborado.
 
-        //Se elimina la versión anterior de la tabla
+        //S'elimina la versió anterior de la taula
         db.execSQL("DROP TABLE IF EXISTS Productes");
 
-        //Se crea la nueva versión de la tabla
+        //Es crea la nova versió de la taula
         db.execSQL(sqlCreate);
     }
 }

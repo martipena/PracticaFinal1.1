@@ -26,33 +26,29 @@ public class ActivityForResult1 extends AppCompatActivity implements View.OnClic
         findViewById(R.id.btnOk2).setOnClickListener(this);
     }
 
-    // Método que se ejecuta al pulsar el botón btnMarca:
+    // Mètode que s'executa al apretar el botó
     public void rellenarMarca(View v) {
         Intent i = new Intent(this, ActivityForResult2.class);
-        // Iniciamos la segunda actividad, y le indicamos que la iniciamos
-        // para rellenar la marca:
+        //S'inicia la segona activitat, dient-li també que es el camp en el que hem escrit
         startActivityForResult(i, MARCA);
     }
-    // Método que se ejecuta al pulsar el botón btnTipo
+
     public void rellenarTipo(View v) {
         Intent i = new Intent(this, ActivityForResult2.class);
-        // Iniciamos la segunda actividad, y le indicamos que la iniciamos
-        // para rellenar el tipo:
         startActivityForResult(i, TIPO);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // Comprobamos si el resultado de la segunda actividad es "RESULT_CANCELED".
+        // Es comprova si el resultat de la segona activitat s'ha cancelat.
         if (resultCode == RESULT_CANCELED) {
-            // Si es así mostramos mensaje de cancelado por pantalla.
+            // Si s'ha cancelat ho mostrem
             Toast.makeText(this, "Resultado cancelado", Toast.LENGTH_SHORT)
                     .show();
         } else {
-            // De lo contrario, recogemos el resultado de la segunda actividad.
+            // Sinó, agafem el resultat de la segona activitat
             String resultado = data.getExtras().getString("RESULTADO");
-            // Y tratamos el resultado en función de si se lanzó para rellenar el
-            // nombre o el apellido.
+            //I es posa la resposta en funció del que habiem triar al principi
             switch (requestCode) {
                 case MARCA:
                     etMarca.setText(resultado);

@@ -39,7 +39,7 @@ public class FitxersExterna extends AppCompatActivity {
                 boolean sdDisponible = false;
                 boolean sdAccesoEscritura = false;
 
-                //Comprobamos el estado de la memoria externa (tarjeta SD)
+                //Comproba el estat de la memòria externa (targeta SD)
                 String estado = Environment.getExternalStorageState();
 
                 if (estado.equals(Environment.MEDIA_MOUNTED))
@@ -58,13 +58,12 @@ public class FitxersExterna extends AppCompatActivity {
                     sdAccesoEscritura = false;
                 }
 
-                //Si la memoria externa está disponible y se puede escribir
+                //Si esta disponible i es pot escriure
                 if (sdDisponible && sdAccesoEscritura)
                 {
                     try
                     {
                         File ruta_sd_global = Environment.getExternalStorageDirectory();
-                        //File ruta_sd_app_musica = getExternalFilesDir(Environment.DIRECTORY_MUSIC);
 
                         File f = new File(ruta_sd_global.getAbsolutePath(), titol);
 

@@ -31,7 +31,7 @@ public class CalculadoraShared2 extends AppCompatActivity {
     public void guardar(View v) {
         SharedPreferences prefs =
                 getSharedPreferences("PreferenciasCalculadora", Context.MODE_PRIVATE);
-
+        //El botó guarda el resultat en les preferencies compartides.
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("resultatAnterior",(int)resultado);
         editor.commit();

@@ -37,38 +37,38 @@ public class SQLite1 extends AppCompatActivity {
         btnDel = (Button)findViewById(R.id.btnEliminar);
         btnCons = (Button) findViewById(R.id.btnConsultar);
 
-        //Abrimos la base de datos 'DBProductes' en modo escritura
+        //Obrim la base de dades en mode escriptura
         ProducteSQLiteHelper usdbh =
                 new ProducteSQLiteHelper(this, "DBProductes", null, 1);
 
         final SQLiteDatabase db = usdbh.getWritableDatabase();
 
-        //Si hemos abierto correctamente la base de datos
+        //Si hem obert correctament la bbdd
         if(db != null)
         {
-            //Insertamos 5 productes de ejemplo
+            //Inserim 5 productes d'exemple
             for(int i=1; i<=5; i++)
             {
-                //Generamos los datos
+                //Generem les dades
                 int id = i;
                 String tipo = "" +txtNom;
                 String marca = "" +txtMarca;
                 String nom = "" +txtNom;
                 //double preu = Double.parseDouble(txtPreu.getText().toString());
                 int preu = +i;
-                //Insertamos los datos en la tabla Productes
+                //Inserim les dades a la taula productes
                 db.execSQL("INSERT INTO Productes (id, tipo, marca, nom, preu) " +
                         "VALUES (" + id + ", '" + tipo +"', '" + marca + "', '" + nom + "', " + preu + ");");
             }
 
-            //Cerramos la base de datos
+            //Tanquem la bbdd
             //db.close();
         }
 
         btnIns.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                //Recuperamos los valores de los campos de texto
+                //Recuperem els valors dels camps de text
                 String id = txtID.getText().toString();
                 String tipo = txtTipo.getText().toString();
                 String marca = txtMarca.getText().toString();
@@ -76,11 +76,11 @@ public class SQLite1 extends AppCompatActivity {
                 String preu = txtPreu.getText().toString();
 
 
-                //Alternativa 1: método sqlExec()
+                //Alternativa 1: mètode sqlExec()
                 //String sql = "INSERT INTO Productes (id,tipo,marca,nom,preu) VALUES (" + id + ", '" + tipo +"', '" + marca + "', '" + nom + "', " + preu + ");");
                 //db.execSQL(sql);
 
-                //Alternativa 2: método insert()
+                //Alternativa 2: mètode insert()
                 ContentValues nuevoRegistro = new ContentValues();
                 nuevoRegistro.put("id", id);
                 nuevoRegistro.put("tipo", tipo);
@@ -94,7 +94,7 @@ public class SQLite1 extends AppCompatActivity {
         btnAct.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                //Recuperamos los valores de los campos de texto
+                //Recuperem els valors dels camps de text
                 String id = txtID.getText().toString();
                 String tipo = txtTipo.getText().toString();
                 String marca = txtMarca.getText().toString();
@@ -111,10 +111,10 @@ public class SQLite1 extends AppCompatActivity {
                     db.execSQL(sql2);
                 }*/
 
-                //Alternativa 1: método sqlExec()
+                //Alternativa 1: mètodo sqlExec()
 
 
-                //Alternativa 2: método update()
+                //Alternativa 2: mètodo update()
                 ContentValues valores = new ContentValues();
                 //valores.put("id", id);
                 valores.put("tipo", tipo);
@@ -128,18 +128,18 @@ public class SQLite1 extends AppCompatActivity {
         btnDel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                //Recuperamos los valores de los campos de texto
+                //Recuperem els valors dels camps de text
                 String id = txtID.getText().toString();
                 /*String tipo = txtTipo.getText().toString();
                 String marca = txtMarca.getText().toString();
                 String nom = txtNom.getText().toString();
                 String preu = txtPreu.getText().toString();*/
 
-                //Alternativa 1: método sqlExec()
+                //Alternativa 1: mètode sqlExec()
                 //String sql = "DELETE FROM Usuarios WHERE codigo=" + cod;
                 //db.execSQL(sql);
 
-                //Alternativa 2: método delete()
+                //Alternativa 2: mètode delete()
                 db.delete("Productes", "id=" + id, null);
             }
         });
@@ -154,9 +154,9 @@ public class SQLite1 extends AppCompatActivity {
 
                 Cursor c = db.query("Productes", campos, "id=?", args, null, null, null);
 
-                //Nos aseguramos de que existe al menos un registro
+                //Ens assegurem de que existeix un registre
                 if (c.moveToFirst()) {
-                    //Recorremos el cursor hasta que no haya más registros
+                    //Recorrem el cursor fins que no quedin més registres
                     do {
                         String id = c.getString(0);
                         String tipo = c.getString(1);

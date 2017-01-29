@@ -40,7 +40,7 @@ public class Missatges extends AppCompatActivity {
     protected void sendSMSMessage() {
         tlfno = editTlfno.getText().toString();
         sms = editSMS.getText().toString();
-
+        //Comprova que té permisos per enviar el SMS
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.SEND_SMS)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -57,16 +57,17 @@ public class Missatges extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
         switch (requestCode) {
+            //Comprova si al enviar hi ha hagut algun error o s'ha enviat correctament
             case MY_PERMISSIONS_REQUEST_SEND_SMS: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     SmsManager smsManager = SmsManager.getDefault();
                     smsManager.sendTextMessage(tlfno, null, sms, null, null);
-                    Toast.makeText(getApplicationContext(), "SMS sent.",
+                    Toast.makeText(getApplicationContext(), "SMS enviat.",
                             Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
-                            "SMS failed, please try again.", Toast.LENGTH_LONG).show();
+                            "Error al SMS, tornaho a provar.", Toast.LENGTH_LONG).show();
                     return;
                 }
             }

@@ -34,7 +34,6 @@ public class CalculadoraShared extends AppCompatActivity {
         });
     }
 
-
     public void clickBotonNum(View v) {
 
         Button botonPulsado = (Button) findViewById(v.getId());
@@ -68,7 +67,7 @@ public class CalculadoraShared extends AppCompatActivity {
                 pantallaResult.setText(String.valueOf(dig1+dig2));
             }
         }
-
+        //Al apretar el botó de igual, ens portara a la segona activitat
         Intent intent = new Intent(CalculadoraShared.this,CalculadoraShared2.class);
         Bundle b = new Bundle();
 
@@ -118,7 +117,7 @@ public class CalculadoraShared extends AppCompatActivity {
     public void recuperar(View v) {
         SharedPreferences prefs =
                 getSharedPreferences("PreferenciasCalculadora", Context.MODE_PRIVATE);
-
+        //Al apretar el botó de recuperar ens mostra l'ultim resultat guardat
         int resultatAnterior = prefs.getInt("resultatAnterior", 0);
         pantallaResult.setText(String.valueOf(resultatAnterior));
     }

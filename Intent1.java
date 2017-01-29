@@ -27,22 +27,22 @@ public class Intent1 extends AppCompatActivity {
 
         String nomSharedPrefs = prefs.getString("NOMBRE", "Nombre por defecto");
 
-        //Implementamos el evento click del botón
+        //Implementem el event del botó
         btnAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos el Intent
+                //Es crea el intent
                 Intent intent =
                         new Intent(Intent1.this, Intent2.class);
 
-                //Creamos la información a pasar entre actividades
+                //Es crea la informació per passar a l'altra activitat
                 Bundle b = new Bundle();
                 b.putString("TLFNO", txtTlfno.getText().toString());
 
-                //Añadimos la información al intent
+                //S'afegeix la informació al intent
                 intent.putExtras(b);
 
-                //Iniciamos la nueva actividad
+                //Iniciem la nova activitat
                 startActivity(intent);
             }
         });

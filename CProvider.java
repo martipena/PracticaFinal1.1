@@ -34,13 +34,12 @@ public class CProvider extends AppCompatActivity {
             }
         });
 
-
-
-
     }
+    //Quan apretem el botó, s'executa el mètode
         public void prova() {
             if (ContextCompat.checkSelfPermission(CProvider.this,
                     Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+                //Comprova que té permisos
                 if (ActivityCompat.shouldShowRequestPermissionRationale(CProvider.this,
                         Manifest.permission.READ_CALL_LOG)) {
                     ActivityCompat.requestPermissions(CProvider.this,
@@ -76,6 +75,7 @@ public class CProvider extends AppCompatActivity {
     private String getCallDetails(){
         StringBuffer sb = new StringBuffer();
         Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI,null,null,null,null);
+        //Recull les dades necessaries
         int number =managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
         int type =managedCursor.getColumnIndex(CallLog.Calls.TYPE);
         int date =managedCursor.getColumnIndex(CallLog.Calls.DATE);
@@ -102,6 +102,7 @@ public class CProvider extends AppCompatActivity {
                     dir="PERDUDA";
                     break;
             }
+            //Mostra les dades
             sb.append("\nNúmero de telèfon: "+phNumber+" \nTipus de trucada: "+dir+"\nDia de la trucada: "+dateString+
                         " \nDuració: "+callDuration);
             sb.append("\n--------------------------------");

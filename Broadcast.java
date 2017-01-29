@@ -45,7 +45,7 @@ public class Broadcast extends AppCompatActivity {
                 sb.append("PRESENT: " + present1 + "\n");
 
                 status = batteryIntent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-
+                //Comprovem el estat actual de la bateria
                 if(status == BatteryManager.BATTERY_STATUS_CHARGING){
                     sb.append("BATEERY_STATUS_CHARGING\n");
                 }
@@ -70,15 +70,14 @@ public class Broadcast extends AppCompatActivity {
         @Override
         //When Event is published, onReceive method is called
         public void onReceive(Context c, Intent i) {
-            //Get Battery %
+            //Obtenim el % de bateria restant
             int level = i.getIntExtra("level", 0);
-            //Find the progressbar creating in main.xml
+            //Posem una barra de progrés
             ProgressBar pb = (ProgressBar) findViewById(R.id.progreso);
-            //Set progress level with battery % value
+            //I li posem el valor igual al del % de la bateria
             pb.setProgress(level);
-            //Find textview control created in main.xml
+            //Despres ho posem en el textView
             TextView tv = (TextView) findViewById(R.id.txtProgreso);
-            //Set TextView with text
             tv.setText("Nivel de bateria: " + Integer.toString(level) + "%");
         }
     };
