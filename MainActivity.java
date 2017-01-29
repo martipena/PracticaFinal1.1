@@ -94,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(getApplicationContext(),ContentProvider.class);
-                startActivity(i);*/
+                Intent i = new Intent(getApplicationContext(),CProvider.class);
+                startActivity(i);
             }
         });
 
@@ -105,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(getApplicationContext(),SQLite.class);
-                startActivity(i);*/
+                Intent i = new Intent(getApplicationContext(),SQLite1.class);
+                startActivity(i);
             }
         });
     }
