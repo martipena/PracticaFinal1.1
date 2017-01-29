@@ -66,7 +66,7 @@ public class Missatges extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
-                            "SMS faild, please try again.", Toast.LENGTH_LONG).show();
+                            "SMS failed, please try again.", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
