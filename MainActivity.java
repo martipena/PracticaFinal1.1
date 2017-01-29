@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),SharedPref.class);
+                Intent i = new Intent(getApplicationContext(),CalculadoraShared.class);
                 startActivity(i);
             }
         });
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(getApplicationContext(),Fitxers.class);
-                startActivity(i);*/
+                Intent i = new Intent(getApplicationContext(),Fitxers.class);
+                startActivity(i);
             }
         });
 
