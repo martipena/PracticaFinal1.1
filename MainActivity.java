@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(getApplicationContext(),sharedcalc.class);
-                startActivity(i);*/
+                Intent i = new Intent(getApplicationContext(),SharedPref.class);
+                startActivity(i);
             }
         });
 
